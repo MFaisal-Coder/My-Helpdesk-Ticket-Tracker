@@ -1,0 +1,113 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+@import "tailwindcss";
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #dde5ed;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #14532d; /* dark green */
+  color: white;
+}
+table th {
+  font-weight: 500;
+}
+table th,
+table td {
+  padding-inline: 12px;
+  border: 1px solid #d1d5db; /* Tailwind gray-300 */
+}
+
+tbody tr td:not(:nth-child(2)) {
+  text-align: center;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f3f4f6; /* Tailwind gray-100 */
+}
+
+tbody tr:hover {
+  background-color: #e5e7eb; /* Tailwind gray-200 */
+}
+
+.search-ticket::placeholder {
+  font-size: 14px;
+  padding-inline: 4px;
+}
+
+@keyframes popup {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes noaccount {
+  from {
+    top: -84px;
+    opacity: 0;
+  }
+  to {
+    top: -72px;
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav-div a {
+    font-size: medium;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+.animate-blob {
+  animation: blob 7s infinite;
+}
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in forwards;
+}
+.fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
+}
