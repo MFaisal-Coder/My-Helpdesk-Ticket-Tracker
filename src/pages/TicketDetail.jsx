@@ -23,11 +23,11 @@ export default function TicketDetail() {
     <>
     <UserInfo/>
     <div className="px-8 text-sm md:ml-50 md:text-md p-4">
-      <div className="bg-white mt-8 shadow-md rounded-md p-4 md:p-6 max-w-6xl mx-auto flex flex-col">
+      <div className="bg-white mt-8 shadow-md rounded-md p-4 md:p-6 max-w-6xl mx-auto">
         <p className="text-lg md:text-xl p-4 font-semibold mb-6 text-left">
           Ticket Details:
         </p>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 text-sm md:text-base shrink-0 grow-1">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 text-sm md:text-base">
           <div className="flex gap-4 md:gap-5 items-center text-nowrap">
             <p className="font-medium ml-4">Task Number: </p>
             <p className="bg-gray-300 px-4 cursor-not-allowed rounded-md outline-1 w-full max-w-48 sm:max-w-62 outline-gray-500">
@@ -36,19 +36,19 @@ export default function TicketDetail() {
           </div>
           <div className="flex gap-3 md:gap-4 items-center text-nowrap">
             <p className="font-medium ml-4">Submitted on: </p>
-            <p className="bg-gray-300 px-4 cursor-not-allowed rounded-md outline-1 w-full max-w-48 sm:max-w-62 outline-gray-500">
+            <p className="bg-gray-300 px-4 cursor-not-allowed text-wrap sm:text-nowrap rounded-md outline-1 w-full max-w-48 sm:max-w-62 outline-gray-500">
               {selectedTicket.date}
             </p>
           </div>
           <div className="flex gap-3 md:gap-5 items-center text-nowrap">
             <p className="font-medium ml-4">Submitted By: </p>
-            <p className="bg-gray-300 px-4 cursor-not-allowed rounded-md outline-1 w-full max-w-48 sm:max-w-62 outline-gray-500">
+            <p className="bg-gray-300 px-4 cursor-not-allowed text-wrap sm:text-nowrap rounded-md outline-1 w-full max-w-48 sm:max-w-62 outline-gray-500">
               {selectedTicket.name}
             </p>
           </div>
           <div className="flex gap-8 md:gap-10 items-center text-nowrap">
             <p className="font-medium ml-4">User Email: </p>
-            <p className="bg-gray-300 px-4 cursor-not-allowed rounded-md outline-1 w-full max-w-48 sm:max-w-62 outline-gray-500">
+            <p className="bg-gray-300 px-2 md:px-4 cursor-not-allowed text-xs text-wrap sm:text-nowrap rounded-md outline-1 w-full max-w-48 sm:max-w-62 outline-gray-500">
               {selectedTicket.email}
             </p>
           </div>
