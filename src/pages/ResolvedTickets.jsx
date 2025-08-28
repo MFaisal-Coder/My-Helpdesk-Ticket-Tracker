@@ -1,30 +1,16 @@
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import { useTickets } from "../contexts/TicketContext";
-import { userInfo } from "../contexts/Loggeduser";
+import UserInfo from "../components/UserInfo";
 
 const ResolvedTickets = () => {
-  const { username} = userInfo()
-  const navigate = useNavigate()
   const {allTickets} = useTickets()
+
   return (
-    <div className="p-4 ml-54">
+    <div className="px-8 md:ml-50 md:text-md p-4">
       <h1 className="text-2xl font-semibold mb-6 text-center">
         Developer Dashboard
       </h1>
-      <div className="flex gap-5 items-center justify-between ml-54 fixed top-2 right-6 z-7">
-          <div className="bg-green-100 border border-green-400 px-4 py-2 rounded-full">
-            {username[0]}
-          </div>
-          <button
-            className="bg-red-700 p-2 text-sm md:text-md rounded -md text-white font-medium cursor-pointer hover:bg-red-600 block w-16 max-w-full transition duration-300 ease-in-out"
-            onClick={() => {
-              navigate("/home");
-              localStorage.removeItem("user");
-            }}
-          >
-            Logout
-          </button>
-        </div>
+      <UserInfo />
 
       {allTickets.length === 0 ? (
         <p className="text-center text-gray-500">No tickets available yet.</p>

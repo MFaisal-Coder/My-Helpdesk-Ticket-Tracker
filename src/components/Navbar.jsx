@@ -1,18 +1,14 @@
 import { Link, NavLink, useLocation } from "react-router";
 
-
 const Navbar = () => {
   const location = useLocation();
   const pathname = location.pathname;
-
 
   const isDev = pathname.startsWith("/dev");
   const isSubmit =
     pathname.startsWith("/submit") || pathname.startsWith("/track");
   const isHome =
-    pathname === "/" ||
-    pathname === "/about" ||
-    pathname === "/contact-us";
+    pathname === "/" || pathname === "/about" || pathname === "/contact-us";
 
   return (
     <>
@@ -38,7 +34,7 @@ const Navbar = () => {
                   // console.log(isActive)
                   return isActive
                     ? "text-blue-300 underline underline-offset-4 font-medium"
-                    : "text-white hover:text-blue-300";
+                    : "text-white hover:text-blue-300 transition duration-300 ease-in-out";
                 }}
               >
                 Home
@@ -49,7 +45,7 @@ const Navbar = () => {
                   // console.log(isActive)
                   return isActive
                     ? "text-blue-300 underline underline-offset-4 font-medium"
-                    : "text-white hover:text-blue-300";
+                    : "text-white hover:text-blue-300 transition duration-300 ease-in-out";
                 }}
               >
                 About
@@ -60,7 +56,7 @@ const Navbar = () => {
                   // console.log(isActive)
                   return isActive
                     ? "text-blue-300 underline underline-offset-4 font-medium"
-                    : "text-white hover:text-blue-300";
+                    : "text-white hover:text-blue-300 transition duration-300 ease-in-out";
                 }}
               >
                 Contact Us
@@ -69,63 +65,68 @@ const Navbar = () => {
           )}
         </div>
       </nav>
-     { (isDev || isSubmit) && <div className="bg-blue-900 w-full max-w-[218px] min-h-dvh fixed top-0 z-1">
-        <div className="space-x-4 nav-div flex flex-col gap-2 absolute top-20 ml-2 z-99">
-          {isDev && (
-            <>
-              <NavLink
-                to="/dev/dashboard"
-                className={({ isActive }) => {
-                  // console.log(isActive)
-                  return isActive
-                    ? "text-blue-300 underline underline-offset-4 font-medium"
-                    : "text-white hover:text-blue-300";
-                }}
-              >
-                Dashboard
-              </NavLink>
-              <NavLink
-                to="/dev/resolved"
-                className={({ isActive }) => {
-                  // console.log(isActive)
-                  return isActive
-                    ? "text-blue-300 underline underline-offset-4 font-medium"
-                    : "text-white hover:text-blue-300";
-                }}
-              >
-                Resolved Tickets
-              </NavLink>
-            </>
-          )}
-          
-          {isSubmit && (
-            <>
-              <NavLink
-                to="/submit"
-                className={({ isActive }) => {
-                  // console.log(isActive)
-                  return isActive
-                    ? "text-blue-300 underline underline-offset-4 font-medium"
-                    : "text-white hover:text-blue-300";
-                }}
-              >
-                Submit Ticket
-              </NavLink>
-              <NavLink
-                to="/track"
-                className={({ isActive }) => {
-                  // console.log(isActive)
-                  return isActive
-                    ? "text-blue-300 underline underline-offset-4 font-medium"
-                    : "text-white hover:text-blue-300";
-                }}
-              >
-                Track a Ticket
-              </NavLink>
-            </>
-          )}
+
+      {(isDev || isSubmit) && (
+        <div className="side-menu w-full max-w-[200px] min-h-dvh fixed top-0 z-1 hidden md:block">
+          <div className="absolute top-20 h-24 w-24 bg-blue-900 rounded-full mix-blend-multiply blur-xl opacity-100 animate-blob z-1"></div>
+          <div className="absolute top-70 h-24 w-24 bg-cyan-950 rounded-full mix-blend-screen blur-xl opacity-100 animate-blob animation-delay-2000"></div>
+          <div className="ml-4 flex flex-col gap-2 absolute top-20 z-99 text-md md:text-lg">
+            {isDev && (
+              <>
+                <NavLink
+                  to="/dev/dashboard"
+                  className={({ isActive }) => {
+                    // console.log(isActive)
+                    return isActive
+                      ? "text-blue-300 underline underline-offset-4 font-medium"
+                      : "text-white hover:text-blue-300 transition duration-300 ease-in-out";
+                  }}
+                >
+                  Dashboard
+                </NavLink>
+                <NavLink
+                  to="/dev/resolved"
+                  className={({ isActive }) => {
+                    // console.log(isActive)
+                    return isActive
+                      ? "text-blue-300 underline underline-offset-4 font-medium"
+                      : "text-white hover:text-blue-300 transition duration-300 ease-in-out";
+                  }}
+                >
+                  Resolved Tickets
+                </NavLink>
+              </>
+            )}
+
+            {isSubmit && (
+              <>
+                <NavLink
+                  to="/submit"
+                  className={({ isActive }) => {
+                    // console.log(isActive)
+                    return isActive
+                      ? "text-blue-300 underline underline-offset-4 font-medium"
+                      : "text-white hover:text-blue-300 transition duration-300 ease-in-out";
+                  }}
+                >
+                  Submit Ticket
+                </NavLink>
+                <NavLink
+                  to="/track"
+                  className={({ isActive }) => {
+                    // console.log(isActive)
+                    return isActive
+                      ? "text-blue-300 underline underline-offset-4 font-medium"
+                      : "text-white hover:text-blue-300 transition duration-300 ease-in-out";
+                  }}
+                >
+                  Track Your Tickets
+                </NavLink>
+              </>
+            )}
+          </div>
         </div>
-      </div>}
+      )}
     </>
   );
 };

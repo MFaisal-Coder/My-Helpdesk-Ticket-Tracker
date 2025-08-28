@@ -1,32 +1,27 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTickets } from "../contexts/TicketContext";
-import { userInfo } from "../contexts/Loggeduser";
-import { useNavigate } from "react-router";
+
+import UserInfo from "../components/UserInfo";
 
 const TrackTickets = () => {
   const [searchQuery, setSearchQuery] = useState("");
-
   const { allTickets } = useTickets();
-  const { username } = userInfo();
-  // console.log(username)
-
-  const navigate = useNavigate();
-
   const loggedUser = JSON.parse(localStorage.getItem("user"));
 
   const filteredTickets = allTickets.filter((ticket) => {
+    return (
+      ticket.subject.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      ticket.id.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    /*
     // console.log(ticket);
-    /* if (
+    if (
       ticket.subject.toLowerCase().includes(searchQuery.toLowerCase()) ||
       ticket.id.toLowerCase().includes(searchQuery.toLowerCase())
     ) {
       return ticket;
     }
  */
-    return (
-      ticket.subject.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      ticket.id.toLowerCase().includes(searchQuery.toLowerCase())
-    );
   });
 
   function userSpecificTicket(ticket) {
@@ -37,27 +32,11 @@ const TrackTickets = () => {
     });
   }
 
-  // const a = userSpecificTicket(filteredTickets);
-  // console.log(a);
-
   return (
     <>
-      <div className=" max-w-6xl ml-54">
-        <div className="flex gap-5 items-center justify-between ml-54 fixed top-2 right-6 z-7">
-          <div className="bg-green-100 border border-green-400 px-4 py-2 rounded-full">
-            {username[0]}
-          </div>
-          <button
-            className="bg-red-700 p-2 text-sm md:text-md rounded -md text-white font-medium cursor-pointer hover:bg-red-600 block w-16 max-w-full transition duration-300 ease-in-out"
-            onClick={() => {
-              navigate("/home");
-              localStorage.removeItem("user");
-            }}
-          >
-            Logout
-          </button>
-        </div>
-        <h2 className="text-md md:text-lg font-medium text-center">
+      <div className="px-8 md:ml-50 md:text-md max-w-6xl">
+       <UserInfo />
+        <h2 className="mt-4 text-md md:text-lg font-medium text-center">
           My Raised Tickets
         </h2>
         <div className="flex flex-col sm:flex-row items-center gap-4 rounded-lg my-5 py-4 px-4 bg-gray-100">

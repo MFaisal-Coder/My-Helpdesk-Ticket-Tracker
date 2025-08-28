@@ -6,6 +6,10 @@ body {
   background-color: #dde5ed;
 }
 
+.side-menu {
+  background-color: oklch(31.656% 0.12879 266.093);
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -14,7 +18,7 @@ table {
 }
 
 thead {
-  background-color: #14532d; /* dark green */
+  background-color: #141653; /* dark green */
   color: white;
 }
 table th {
@@ -110,4 +114,12 @@ tbody tr:hover {
 }
 .fade-out {
   animation: fadeOut 0.5s ease-out forwards;
+}
+
+.user-info{
+  display: none;
+}
+
+.user-info.show{
+  display: block;
 }

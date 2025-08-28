@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useTickets } from "../contexts/TicketContext";
+import UserInfo from "../components/UserInfo";
 
 export default function TicketDetail() {
   const { ticketId } = useParams();
@@ -20,11 +21,13 @@ export default function TicketDetail() {
 
   return (
     <>
-      <div className="bg-white mt-8 shadow-md rounded-md p-4 md:p-6 max-w-6xl mx-auto ml-54">
-        <p className="text-lg md:text-xl p-4 font-semibold mb-6 text-left ">
+    <UserInfo/>
+    <div className="px-8 text-sm md:ml-50 md:text-md p-4">
+      <div className="bg-white mt-8 shadow-md rounded-md p-4 md:p-6 max-w-6xl mx-auto flex flex-col">
+        <p className="text-lg md:text-xl p-4 font-semibold mb-6 text-left">
           Ticket Details:
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 text-sm md:text-base">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 text-sm md:text-base shrink-0 grow-1">
           <div className="flex gap-4 md:gap-5 items-center text-nowrap">
             <p className="font-medium ml-4">Task Number: </p>
             <p className="bg-gray-300 px-4 cursor-not-allowed rounded-md outline-1 w-full max-w-48 sm:max-w-62 outline-gray-500">
@@ -77,7 +80,7 @@ export default function TicketDetail() {
           </div>
           <div className="mx-4 my-6 md:gap-18 text-nowrap">
             <p className="font-medium mb-2">Description: </p>
-            <p className="bg-gray-300 px-4 py-2 cursor-not-allowed rounded-md outline-1 w-full max-w-full outline-gray-500">
+            <p className="bg-gray-300 px-4 py-2 text-wrap cursor-not-allowed rounded-md min-h-20 outline-1 w-full max-w-full outline-gray-500">
               {selectedTicket.description}
             </p>
           </div>
@@ -144,6 +147,7 @@ export default function TicketDetail() {
           </div>
         </div>
       </div>
+    </div>
     </>
   );
 }
