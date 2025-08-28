@@ -11,7 +11,6 @@ const Navbar = () => {
     pathname.startsWith("/submit") || pathname.startsWith("/track");
   const isHome =
     pathname === "/" ||
-    pathname === "/home" ||
     pathname === "/about" ||
     pathname === "/contact-us";
 
@@ -34,7 +33,7 @@ const Navbar = () => {
           {isHome && (
             <>
               <NavLink
-                to="/home"
+                to="/"
                 className={({ isActive }) => {
                   // console.log(isActive)
                   return isActive
