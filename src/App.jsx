@@ -39,26 +39,49 @@ function App() {
                 </Loggeduser>
               }
             >
-              <Route path="/submit" element={<ProtectedRoute allowedRole={["user"]}>
-                <CustomerHome />
-              </ProtectedRoute>} />
-              <Route path="/track" element={<ProtectedRoute allowedRole={["user"]}>
-                <TrackTickets />
-              </ProtectedRoute>}/>
-              <Route path="/dev/dashboard" element={<ProtectedRoute allowedRole={["dev"]}>
-                <DevDashboard />
-              </ProtectedRoute>} />
+              <Route
+                path="/submit"
+                element={
+                  <ProtectedRoute allowedRole={["user"]}>
+                    <CustomerHome />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/track"
+                element={
+                  <ProtectedRoute allowedRole={["user"]}>
+                    <TrackTickets />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/dev/dashboard"
+                element={
+                  <ProtectedRoute allowedRole={["dev"]}>
+                    <DevDashboard />
+                  </ProtectedRoute>
+                }
+              />
               <Route
                 path="/dev/dashboard/ticket/:ticketId"
-                element={<ProtectedRoute allowedRole={["dev"]}>
-                <TicketDetail />
-              </ProtectedRoute>}
+                element={
+                  <ProtectedRoute allowedRole={["dev"]}>
+                    <TicketDetail />
+                  </ProtectedRoute>
+                }
               />
-              <Route path="/dev/resolved" element={<ProtectedRoute allowedRole={["dev"]}>
-                <ResolvedTickets />
-              </ProtectedRoute>} />
+              <Route
+                path="/dev/resolved"
+                element={
+                  <ProtectedRoute allowedRole={["dev"]}>
+                    <ResolvedTickets />
+                  </ProtectedRoute>
+                }
+              />
             </Route>
             <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/login" element={<Login />} />

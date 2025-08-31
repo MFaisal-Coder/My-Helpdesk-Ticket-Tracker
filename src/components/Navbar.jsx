@@ -19,7 +19,7 @@ const Navbar = () => {
             alt="HelpDesk Pro Logo"
             className="w-6 md:w-8"
           />
-          <Link to="/home">
+          <Link to="/">
             <h1 className="font-medium text-md md:text-lg cursor-pointer">
               HelpDesk Pro
             </h1>
