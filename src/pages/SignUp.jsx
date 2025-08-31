@@ -124,7 +124,7 @@ const SignUp = () => {
                     ...prev,
                     username: e.target.value,
                   }));
-                  setError((prev)=>({...prev, username:''}))
+                  setError((prev) => ({ ...prev, username: "" }));
                 }}
                 className={`{pholder bg-white outline-1 max-w-full w-lg rounded-sm p-2 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-600 ${style.pholder}`}
                 placeholder="Username "
@@ -153,8 +153,7 @@ const SignUp = () => {
                     email: e.target.value,
                     role: role,
                   }));
-                  setError((prev)=>({...prev, email:''}))
-
+                  setError((prev) => ({ ...prev, email: "" }));
                 }}
                 className={`{pholder bg-white outline-1 max-w-full w-lg rounded-sm p-2 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-600 ${style.pholder}`}
                 placeholder="Email"
@@ -178,9 +177,8 @@ const SignUp = () => {
                     ...prev,
                     password: e.target.value,
                   }));
-                  setError((prev)=>({...prev, password:''}))
-                  setError((prev)=>({...prev, confirmPassword:''}))
-
+                  setError((prev) => ({ ...prev, password: "" }));
+                  setError((prev) => ({ ...prev, confirmPassword: "" }));
                 }}
                 className={`{pholder bg-white outline-1 max-w-full w-lg rounded-sm p-2 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-600 ${style.pholder}`}
                 placeholder="Password"
@@ -204,8 +202,7 @@ const SignUp = () => {
                     ...prev,
                     confirmPassword: e.target.value,
                   }));
-                  setError((prev)=>({...prev, confirmPassword:''}))
-
+                  setError((prev) => ({ ...prev, confirmPassword: "" }));
                 }}
                 className={`{pholder bg-white outline-1 max-w-full w-lg rounded-sm p-2 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-600 ${style.pholder}`}
                 placeholder="Confirm password"

@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "username": "alex",
+      "email": "alex@helpdesk-dev.com",
+      "role": "dev",
+      "password": "Dev@123"
+    },
+    {
+      "username": "maria",
+      "email": "maria@helpdesk.com",
+      "role": "user",
+      "password": "User@123"
+    },
+    {
+      "username": "admin",
+      "email": "admin@helpdesk-admin.com",
+      "role": "admin",
+      "password": "Admin@123"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "TASK1001",
+      "name": "Maria Garcia",
+      "email": "maria@helpdesk.com",
+      "subject": "Login Issue",
+      "description": "Unable to login to the dashboard.",
+      "priority": "high",
+      "status": "Open",
+      "date": "2024-06-01 10:00 AM"
+    },
+    {
+      "id": "TASK1002",
+      "name": "Alex Johnson",
+      "email": "alex@helpdesk-dev.com",
+      "subject": "Feature Request",
+      "description": "Requesting a dark mode feature.",
+      "priority": "medium",
+      "status": "In-Progress",
+      "date": "2024-06-02 11:30 AM"
+    },
+    {
+      "name": "Mohammad Anas",
+      "email": "anas4u02@gmail.com",
+      "subject": "Short Description",
+      "description": "Additional Information",
+      "priority": "low",
+      "status": "Open",
+      "date": "8/31/2025, 1:22:27 PM",
+      "id": "TASK4269"
+    }
+  ]
+}

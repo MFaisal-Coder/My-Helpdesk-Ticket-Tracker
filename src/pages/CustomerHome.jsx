@@ -5,7 +5,7 @@ import UserInfo from "../components/UserInfo";
 import "../App.css";
 
 export default function CustomerHome() {
-  const { ticket, setTicket, allTickets, setAllTickets } = useTickets();
+  const { ticket, setTicket, allTickets, addNewTicket } = useTickets();
   const [ticketSubmitted, setTicketSubmitted] = useState(false);
   const [error, setError] = useState({});
 
@@ -91,7 +91,7 @@ export default function CustomerHome() {
       )}
 
       {/* Login area div */}
-      <UserInfo/>
+      <UserInfo />
 
       {/* Main ticket submission area */}
       <div className="mt-6 px-8 text-xs md:ml-50 md:text-md">
@@ -266,15 +266,12 @@ export default function CustomerHome() {
             <div className="mt-6">
               <button
                 className="bg-green-800 px-2 py-1 text-sm md:text-md rounded -md text-white font-medium cursor-pointer hover:bg-green-700 block mx-auto transition duration-300 ease-in-out hover:scale-[1.02] active:scale-95"
-                onClick={(e) => {
-                  // console.log('clickd')
+                onClick={async (e) => {
                   e.preventDefault();
 
                   const validationError = validateErrors(ticket);
 
                   setError(validationError);
-                  // console.log(error)
-
                   if (Object.keys(validationError).length > 0) return;
 
                   const newTicketID = generateTicketNumber(
@@ -284,10 +281,16 @@ export default function CustomerHome() {
 
                   setTicketSubmitted(true);
 
+                  try {
+                    // attempt to persist via backend (falls back inside addNewTicket)
+                    await addNewTicket(finalTicket);
+                  } catch (err) {
+                    console.warn("addNewTicket failed:", err);
+                  }
+
                   setTimeout(() => {
                     setTicketSubmitted(false);
-                    setAllTickets((prev) => [...prev, finalTicket]);
-                  }, 2000);
+                  }, 1200);
 
                   setTicket({
                     name: "",
