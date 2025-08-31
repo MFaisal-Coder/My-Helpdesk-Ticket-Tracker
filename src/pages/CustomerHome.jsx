@@ -91,7 +91,7 @@ export default function CustomerHome() {
       )}
 
       {/* Login area div */}
-      <UserInfo/>
+      <UserInfo />
 
       {/* Main ticket submission area */}
       <div className="mt-6 px-8 text-xs md:ml-50 md:text-md">
@@ -286,7 +286,9 @@ export default function CustomerHome() {
 
                   setTimeout(() => {
                     setTicketSubmitted(false);
-                    setAllTickets((prev) => [...prev, finalTicket]);
+                    setAllTickets((prev) => {
+                      return [...prev, finalTicket];
+                    });
                   }, 2000);
 
                   setTicket({

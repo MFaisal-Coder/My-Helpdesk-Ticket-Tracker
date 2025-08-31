@@ -34,8 +34,8 @@ const TrackTickets = () => {
 
   return (
     <>
-      <div className="px-8 md:ml-50 md:text-md max-w-6xl">
-       <UserInfo />
+      <div className="px-8 md:ml-50 md:text-md">
+        <UserInfo />
         <h2 className="mt-4 text-md md:text-lg font-medium text-center">
           My Raised Tickets
         </h2>
