@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import dummyData from "../dummyData.json";
 
 export const TicketContext = createContext();
 
@@ -13,12 +14,19 @@ export default function TicketProvider({ children }) {
     date: new Date().toLocaleString(),
   });
 
-
-  const [existingUser, setExistingUser] = useState(JSON.parse(localStorage.getItem("users")) || []);
+  const [existingUser, setExistingUser] = useState(() => {
+    try {
+      const stored = localStorage.getItem("users");
+      return stored ? JSON.parse(stored) : dummyData.users;
+    } catch (err) {
+      console.error("Failed to parse users from localStorage:", err);
+      return dummyData.users;
+    }
+  });
 
   useEffect(() => {
     const storedUsers = JSON.parse(localStorage.getItem("users"));
-    setExistingUser(storedUsers);
+    setExistingUser(storedUsers ? storedUsers : dummyData.users);
   }, []);
 
   useEffect(() => {
@@ -34,14 +42,14 @@ export default function TicketProvider({ children }) {
   // const existingUser = JSON.parse(localStorage.getItem('users'))
 
   const addNewUser = (newUser) => {
-    const updatedUsers = [...(existingUser||[]), newUser];
+    const updatedUsers = [...(existingUser || []), newUser];
     localStorage.setItem("users", JSON.stringify(updatedUsers));
     setExistingUser(updatedUsers);
   };
 
   const [allTickets, setAllTickets] = useState(() => {
     const saved = JSON.parse(localStorage.getItem("tickets"));
-    return saved ? saved : [];
+    return saved ? saved : dummyData.tickets;
   });
 
   const updateTicket = (ticketId, updatedFields) => {
@@ -58,7 +66,15 @@ export default function TicketProvider({ children }) {
 
   return (
     <TicketContext.Provider
-      value={{ ticket, setTicket, allTickets, setAllTickets, updateTicket, existingUser, addNewUser  }}
+      value={{
+        ticket,
+        setTicket,
+        allTickets,
+        setAllTickets,
+        updateTicket,
+        existingUser,
+        addNewUser,
+      }}
     >
       {children}
     </TicketContext.Provider>
