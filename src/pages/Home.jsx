@@ -97,10 +97,10 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-2 pt-8">
               <div className="flex -space-x-4">
-                {[user1, user2, user3, user4, user5].map((item) => (
+                {[user1, user2, user3, user4, user5].map((item, i) => (
                   <div
                     key={item}
-                    className="h-10 w-10 overflow-hidden rounded-full bg-blue-700 border-2 border-blue-900"
+                    className={`h-10 w-10 overflow-hidden rounded-full bg-blue-700 border-2 border-blue-900`}
                   >
                     <img src={item} alt="user-images" />
                   </div>
@@ -114,11 +114,14 @@ export default function Home() {
           <div className="relative">
             <div className="absolute -top-10 -right-10 h-64 w-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob z-1"></div>
             <div className="absolute -bottom-10 -left-10 h-64 w-64 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-            <img
-              src={caraouselImages[currentImageIndex]}
+            {
+              caraouselImages.map((singleImage,i) =>{ 
+               return <img
+              src={singleImage}
               alt="Dashboard Preview"
-              className={`relative z-10 h-100 max-w-130 w-full object-cover rounded-2xl shadow-2xl border border-blue-700/30 transform hover:scale-95 transition-all duration-500 ${fadeState === 'fade-in' ? 'opacity-100' : 'opacity-0'}`}
-            />
+              className={`relative z-10 h-100 max-w-130 w-full object-cover rounded-2xl shadow-2xl border border-blue-700/30 transform hover:scale-95 transition-all duration-500 ${fadeState === 'fade-in' ? 'opacity-100' : 'opacity-0'} ${i === currentImageIndex ? 'block' : 'hidden'}`}/>
+              })
+            }
           </div>
         </div>
       </section>
