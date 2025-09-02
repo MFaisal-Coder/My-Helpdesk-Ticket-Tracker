@@ -232,7 +232,7 @@ export default function ContactUs() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              to="/contact"
+              to="/contact-us"
               className="relative bg-white text-blue-900 font-bold py-4 px-8 rounded-full hover:scale-105 transition-all duration-300 group overflow-hidden"
             >
               <span className="relative z-10">Contact Support</span>

@@ -47,15 +47,6 @@ export default function About() {
               We're revolutionizing helpdesk solutions with cutting-edge technology 
               and a passion for exceptional customer experiences.
             </p>
-            <div className="flex gap-4 pt-4">
-              <Link
-                to="/contact"
-                className="relative bg-white text-blue-900 font-bold py-4 px-8 rounded-full hover:scale-105 transition-all duration-300 group overflow-hidden"
-              >
-                <span className="relative z-10">Contact Us</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-              </Link>
-            </div>
           </div>
           <div className="relative">
             <div className="absolute -top-10 -right-10 h-64 w-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob z-1"></div>

@@ -17,6 +17,7 @@ import heroimg1 from "/images/heroimg1.webp";
 import heroimg2 from "/images/heroimg2.avif";
 import heroimg3 from "/images/heroimg3.webp";
 import heroimg4 from "/images/heroimg4.avif";
+import dashboardImg from "/images/Dashboard.jpg"
 
 export default function Home() {
   const sections = useRef([]);
@@ -68,34 +69,34 @@ export default function Home() {
         className="min-h-screen bg-gradient-to-br from-blue-900 to-indigo-900 text-white py-20 px-4 flex items-center transition-opacity duration-500 opacity-0"
       >
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+          <div className="space-y-4 md:space-y-6">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-400">
                 Modern Helpdesk
               </span>
               <br />
               For The Digital Age
             </h1>
-            <p className="text-xl text-blue-100 max-w-lg">
+            <p className="text-md md:text-xl text-blue-100 max-w-lg">
               Revolutionize your support workflow with our dynamic ticketing and
               real-time analytics.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex items-center flex-row gap-2 md:gap-4 md:pt-4">
               <Link
                 to="/sign-up"
-                className="relative bg-white text-blue-900 font-bold py-4 px-8 rounded-full hover:scale-105 transition-all duration-300 group overflow-hidden"
+                className="relative bg-white text-blue-900 text-sm md:text-lg font-bold py-2 px-4 md:py-4 md:px-8 rounded-full hover:scale-105 transition-all duration-300 group overflow-hidden"
               >
-                <span className="relative z-10">Get Started Free</span>
+                <span className="relative z-10">Sign Up For Free</span>
                 <span className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               </Link>
               <Link
-                to="/demo"
-                className="relative border-2 border-blue-300 text-white font-bold py-4 px-8 rounded-full hover:bg-blue-800/30 hover:scale-105 transition-all duration-300"
+                to="/login"
+                className="relative border-2 border-blue-300 text-sm md:text-lg font-bold py-2 px-4 md:py-4 md:px-8 text-white rounded-full hover:bg-blue-800/30 hover:scale-105 transition-all duration-300"
               >
-                Live Demo
+                Sign In
               </Link>
             </div>
-            <div className="flex items-center gap-2 pt-8">
+            <div className="flex items-center gap-2 pt-4 md:pt-8">
               <div className="flex -space-x-4">
                 {[user1, user2, user3, user4, user5].map((item, i) => (
                   <div
@@ -117,9 +118,10 @@ export default function Home() {
             {
               caraouselImages.map((singleImage,i) =>{ 
                return <img
+               key={singleImage}
               src={singleImage}
               alt="Dashboard Preview"
-              className={`relative z-10 h-100 max-w-130 w-full object-cover rounded-2xl shadow-2xl border border-blue-700/30 transform hover:scale-95 transition-all duration-500 ${fadeState === 'fade-in' ? 'opacity-100' : 'opacity-0'} ${i === currentImageIndex ? 'block' : 'hidden'}`}/>
+              className={`relative z-10 h-60 max-w-120 md:h-100 md:max-w-130 w-full object-cover rounded-2xl shadow-2xl border border-blue-700/30 transform hover:scale-95 transition-all duration-500 ${fadeState === 'fade-in' ? 'opacity-100' : 'opacity-0'} ${i === currentImageIndex ? 'block' : 'hidden'}`}/>
               })
             }
           </div>
@@ -129,20 +131,20 @@ export default function Home() {
       {/* Logo Cloud Section */}
       <section
         ref={(el) => (sections.current[1] = el)}
-        className="py-16 bg-gray-50 opacity-0"
+        className="py-12 md:py-16 bg-gray-50 opacity-0"
       >
         <div className="max-w-7xl mx-auto px-4">
-          <p className="text-center text-gray-500 mb-12">
+          <p className="text-center text-gray-500 mb-8 md:mb-12">
             TRUSTED BY INNOVATIVE TEAMS
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-center">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-center justify-self-center">
             {[comp1, comp2, comp3, comp4, comp6].map(
               (company, i) => (
                 <div
                   key={i}
-                  className="max-w-46"
+                  className="max-w-46 px-4"
                 >
-                  <img className="w-full" src={company} alt="company-logos" />
+                  <img className="w-[65%] md:w-full" src={company} alt="company-logos" />
                 </div>
               )
             )}
@@ -153,34 +155,34 @@ export default function Home() {
       {/* Features Section */}
       <section
         ref={(el) => (sections.current[2] = el)}
-        className="py-28 px-4 bg-white opacity-0"
+        className="py-20 md:py-28 px-4 bg-white opacity-0"
       >
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-20">
+          <div className="text-center mb-16 md:mb-20">
             <span className="text-blue-600 font-semibold">
               POWERFUL FEATURES
             </span>
-            <h2 className="text-4xl font-bold mt-4">
+            <h2 className="text-xl md:text-4xl font-bold mt-2 md:mt-4">
               Everything You Need in One Platform
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-16 items-center mb-28">
+          <div className="grid md:grid-cols-2 gap-16 items-center mb-22 md:mb-28">
             <div className="space-y-6">
               <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
                 Ticket Management
               </div>
-              <h3 className="text-3xl font-bold">Intuitive Ticket System</h3>
-              <p className="text-gray-600 text-lg">
+              <h3 className="text-lg md:text-3xl font-bold">Intuitive Ticket System</h3>
+              <p className="text-gray-600 text-sm md:text-lg">
                 Create, assign, and track tickets with our beautiful interface
                 designed for maximum productivity.
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-1 md:space-y-3 text-sm md:text-lg">
                 {[
-                  "Drag-and-drop prioritization",
-                  "Custom ticket fields",
-                  "Automated routing",
-                  "SLA tracking",
+                  "Priority Based Ticket Creation",
+                  "Custom Ticket Fields",
+                  "Easy Tracking",
+                  "Resoltuion Notes",
                 ].map((item, i) => (
                   <li key={i} className="flex items-center">
                     <svg
@@ -201,13 +203,15 @@ export default function Home() {
                 ))}
               </ul>
             </div>
-            <div className="relative">
+            <div className="relative mx-9 max-w-md md:max-w-full">
               <div className="absolute -inset-4 bg-blue-100 rounded-2xl transform rotate-2"></div>
-              <img
-                src="https://www.servicenow.com/content/dam/servicenow-assets/public/scripts/homepage-redesign/marquee/homepage-ai-control-tower-1.sm.jpg"
+              <div className="">
+                <img
+                src={dashboardImg}
                 alt="Ticket Management"
                 className="relative rounded-xl shadow-lg border border-gray-200"
               />
+              </div>
             </div>
           </div>
 
@@ -216,17 +220,15 @@ export default function Home() {
               <div className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
                 Analytics
               </div>
-              <h3 className="text-3xl font-bold">Real-time Insights</h3>
-              <p className="text-gray-600 text-lg">
-                Make data-driven decisions with beautiful dashboards and
-                customizable reports.
+              <h3 className="text-lg md:text-3xl font-bold">Real-time Insights</h3>
+              <p className="text-gray-600 text-sm md:text-lg ">
+                Make data-driven decision with beautiful dashboard.
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-1 md:space-y-3 text-sm md:text-lg">
                 {[
                   "Team performance metrics",
-                  "Customer satisfaction trends",
+                  "Ticket Trends",
                   "Ticket volume forecasting",
-                  "Custom report builder",
                 ].map((item, i) => (
                   <li key={i} className="flex items-center">
                     <svg
@@ -247,7 +249,7 @@ export default function Home() {
                 ))}
               </ul>
             </div>
-            <div className="order-2 md:order-1 relative">
+            <div className="order-2 md:order-1 relative mx-9 max-w-md md:max-w-full">
               <div className="absolute -inset-4 bg-purple-100 rounded-2xl transform -rotate-2"></div>
               <img
                 src="https://www.servicenow.com/content/dam/servicenow-assets/public/scripts/homepage-redesign/marquee/homepage-ai-control-tower-1.sm.jpg"
@@ -262,17 +264,17 @@ export default function Home() {
       {/* Testimonials */}
       <section
         ref={(el) => (sections.current[3] = el)}
-        className="py-20 bg-gray-50 opacity-0"
+        className="py-12 md:py-20 bg-gray-50 opacity-0"
       >
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-16">
             <span className="text-blue-600 font-semibold">TESTIMONIALS</span>
-            <h2 className="text-4xl font-bold mt-4">
+            <h2 className="text-lg md:text-4xl font-bold mt-4">
               Trusted by Teams Worldwide
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-4 md:gap-8">
             {[
               {
                 quote:
@@ -300,12 +302,12 @@ export default function Home() {
                 key={i}
                 className="bg-white p-8 flex flex-col flex-wrap justify-between rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100"
               >
-                <div className="text-yellow-400 text-2xl mb-4">★★★★★</div>
-                <p className="text-gray-600 italic mb-6">
+                <div className="text-yellow-400 text-lg md:text-2xl mb-2 md:mb-4">★★★★★</div>
+                <p className="text-gray-600 text-sm md:text-md italic mb-4 md:mb-6">
                   "{testimonial.quote}"
                 </p>
                 <div className="flex items-center">
-                  <div className="h-12 w-12 rounded-full bg-gray-300 mr-4 overflow-hidden">
+                  <div className="h-9 w-9 md:h-12 md:w-12 rounded-full bg-gray-300 mr-3 md:mr-4 overflow-hidden">
                       <img
                         src={testimonial.img}
                         alt={testimonial.name}
@@ -313,8 +315,8 @@ export default function Home() {
                       />
                   </div>
                   <div>
-                    <p className="font-bold">{testimonial.name}</p>
-                    <p className="text-gray-500 text-sm">{testimonial.title}</p>
+                    <p className="text-sm md:text-md font-bold">{testimonial.name}</p>
+                    <p className="text-gray-500 text-xs md:text-sm">{testimonial.title}</p>
                   </div>
                 </div>
               </div>
@@ -326,29 +328,29 @@ export default function Home() {
       {/* CTA Section */}
       <section
         ref={(el) => (sections.current[4] = el)}
-        className="py-28 bg-gradient-to-r from-blue-900 to-indigo-800 text-white opacity-0"
+        className="py-18 md:py-28 bg-gradient-to-r from-blue-900 to-indigo-800 text-white opacity-0"
       >
         <div className="max-w-4xl mx-auto text-center px-4">
-          <h2 className="text-4xl font-bold mb-6">
+          <h2 className="text-xl md:text-4xl font-bold mb-2 md:mb-6">
             Ready to Transform Your Helpdesk?
           </h2>
-          <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
+          <p className="text-sm md:text-xl mb-4 md:mb-8 text-blue-100 max-w-2xl mx-auto">
             Join thousands of teams who deliver exceptional support with our
             platform.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-row gap-2 md:gap-4 items-center justify-center">
             <Link
               to="/sign-up"
-              className="relative bg-white text-blue-900 font-bold py-4 px-8 rounded-full hover:scale-105 transition-all duration-300 group overflow-hidden"
+              className="relative bg-white text-blue-900 font-bold py-1 md:py-4 px-4 md:px-8 rounded-full hover:scale-105 transition-all duration-300 group overflow-hidden"
             >
-              <span className="relative z-10">Start Free Trial</span>
+              <span className="relative z-10">Join Us</span>
               <span className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             </Link>
             <Link
-              to="/contact"
-              className="relative border-2 border-blue-300 text-white font-bold py-4 px-8 rounded-full hover:bg-blue-800/30 hover:scale-105 transition-all duration-300"
+              to="/contact-us"
+              className="relative border-2 border-blue-300 text-white font-bold py-1 md:py-4 px-3 md:px-8 rounded-full hover:bg-blue-800/30 hover:scale-105 transition-all duration-300"
             >
-              Contact Sales
+              Contact Our Team
             </Link>
           </div>
         </div>

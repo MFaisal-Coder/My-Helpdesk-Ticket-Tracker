@@ -1,14 +1,18 @@
 import { Link, NavLink, useLocation } from "react-router";
+import { useEffect, useState } from "react";
+import Hamburger from "./Hamburger";
 
 const Navbar = () => {
   const location = useLocation();
   const pathname = location.pathname;
-
   const isDev = pathname.startsWith("/dev");
-  const isSubmit =
-    pathname.startsWith("/submit") || pathname.startsWith("/track");
-  const isHome =
-    pathname === "/" || pathname === "/about" || pathname === "/contact-us";
+  const isSubmit = pathname.startsWith("/submit") || pathname.startsWith("/track");
+  const isHome = pathname === "/" || pathname === "/about" || pathname === "/contact-us";
+  const [showNav, setShowNav] = useState(false)
+
+  useEffect(()=>{
+    setShowNav(false)
+  },[location])
 
   return (
     <>
@@ -25,7 +29,7 @@ const Navbar = () => {
             </h1>
           </Link>
         </div>
-        <div className="flex gap-4">
+        <div className='hidden md:flex gap-4'>
           {isHome && (
             <>
               <NavLink
@@ -65,6 +69,66 @@ const Navbar = () => {
           )}
         </div>
       </nav>
+
+      <Hamburger setState={setShowNav} state={showNav} />
+
+      {showNav && (
+          <div className="bg-gradient-to-bl z-6 from-blue-900 to-blue-950 rounded-lg w-45 h-50 absolute top-2 right-1 md:hidden">
+            <div className="mt-4 p-3 text-sm space-y-1">
+              <div className="">
+                <p className="mt-3 mb-4 text-white">Navigate to:</p>
+
+                  <div className="flex flex-col justify-center gap-2 mb-1 ml-4">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full bg-white"></div>
+                      <NavLink
+                        to="/"
+                        className={({ isActive }) => {
+                          // console.log(isActive)
+                          return isActive
+                            ? "text-blue-300 underline underline-offset-4 font-medium"
+                            : "text-white hover:text-blue-300 transition duration-300 ease-in-out";
+                        }}
+                      >
+                        Home
+                      </NavLink>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full bg-white"></div>
+                      <NavLink
+                        to="/about"
+                        className={({ isActive }) => {
+                          // console.log(isActive)
+                          return isActive
+                            ? "text-blue-300 underline underline-offset-4 font-medium"
+                            : "text-white hover:text-blue-300 transition duration-300 ease-in-out";
+                        }}
+                      >
+                        About
+                      </NavLink>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full bg-white"></div>
+                      <NavLink
+                        to="/contact-us"
+                        className={({ isActive }) => {
+                          // console.log(isActive)
+                          return isActive
+                            ? "text-blue-300 underline underline-offset-4 font-medium"
+                            : "text-white hover:text-blue-300 transition duration-300 ease-in-out";
+                        }}
+                      >
+                        Contact Us
+                      </NavLink>
+                    </div>
+                  </div>
+
+               
+              </div>
+            </div>
+          </div>
+        )}
+
 
       {(isDev || isSubmit) && (
         <div className="side-menu w-full max-w-[200px] min-h-dvh fixed top-0 z-1 hidden md:block">

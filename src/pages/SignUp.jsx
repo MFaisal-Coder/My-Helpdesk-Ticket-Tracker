@@ -236,6 +236,7 @@ const SignUp = () => {
                 addNewUser(userDetail);
 
                 setTimeout(() => {
+                  navigate("/login");
                   setIsLoading(false);
                   setUserDetail({
                     username: "",
@@ -244,10 +245,10 @@ const SignUp = () => {
                     confirmPassword: "",
                     role: "user",
                   });
-                  navigate("/login");
+                  setError({});
+                  //Navigation isn't working as expected since the component is unmounting before the setTimeOut hence I am forcing the page to go to login screen here
+                  window.location.href = '/login'  
                 }, 3000);
-
-                setError({});
               }}
               disabled={isLoading}
             >

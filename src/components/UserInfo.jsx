@@ -138,7 +138,7 @@ const UserInfo = () => {
           </div>
         )}
       </div>
-      <Hamburger setShowMenu={setShowMenu} showMenu={showMenu} />
+      <Hamburger setState={setShowMenu} state={showMenu} />
     </div>
   );
 };
