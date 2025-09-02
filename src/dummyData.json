@@ -1,13 +1,13 @@
 {
   "users": [
     {
-      "username": "alex",
+      "username": "Alex James",
       "email": "alex@helpdesk-dev.com",
       "role": "dev",
       "password": "Dev@123"
     },
     {
-      "username": "maria",
+      "username": "Maria Pie",
       "email": "maria@helpdesk.com",
       "role": "user",
       "password": "User@123"
@@ -17,6 +17,20 @@
       "email": "admin@helpdesk-admin.com",
       "role": "admin",
       "password": "Admin@123"
+    },
+    {
+      "username": "Amy John",
+      "email": "amy.j@helpdesk.com",
+      "password": "amy@123",
+      "confirmPassword": "amy@123",
+      "role": "user"
+    },
+    {
+      "username": "Max Statham",
+      "email": "max123@helpdesk-dev.com",
+      "password": "max@234",
+      "confirmPassword": "max@234",
+      "role": "dev"
     }
   ],
   "tickets": [
