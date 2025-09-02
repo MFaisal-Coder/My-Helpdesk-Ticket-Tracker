@@ -3,8 +3,9 @@ import {
   Routes,
   Route,
   Outlet,
+  HashRouter,
 } from "react-router-dom";
-
+import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
 import CustomerHome from "./pages/CustomerHome";
 import Home from "./pages/Home";
@@ -31,63 +32,66 @@ function App() {
         <Navbar />
 
         <div className="overflow-x-hidden">
-          <Routes>
-            <Route
-              element={
-                <Loggeduser>
-                  <Outlet />
-                </Loggeduser>
-              }
-            >
+          <ScrollToTop>
+            <Routes>
               <Route
-                path="/submit"
                 element={
-                  <ProtectedRoute allowedRole={["user"]}>
-                    <CustomerHome />
-                  </ProtectedRoute>
+                  <Loggeduser>
+                    <Outlet />
+                  </Loggeduser>
                 }
-              />
-              <Route
-                path="/track"
-                element={
-                  <ProtectedRoute allowedRole={["user"]}>
-                    <TrackTickets />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/dev/dashboard"
-                element={
-                  <ProtectedRoute allowedRole={["dev"]}>
-                    <DevDashboard />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/dev/dashboard/ticket/:ticketId"
-                element={
-                  <ProtectedRoute allowedRole={["dev"]}>
-                    <TicketDetail />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/dev/resolved"
-                element={
-                  <ProtectedRoute allowedRole={["dev"]}>
-                    <ResolvedTickets />
-                  </ProtectedRoute>
-                }
-              />
-            </Route>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact-us" element={<ContactUs />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/sign-up" element={<SignUp />} />
-            <Route path="/admin" element={<AdminDashboard />} />
-          </Routes>
+              >
+                <Route
+                  path="/submit"
+                  element={
+                    <ProtectedRoute allowedRole={["user"]}>
+                      <CustomerHome />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/track"
+                  element={
+                    <ProtectedRoute allowedRole={["user"]}>
+                      <TrackTickets />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/dev/dashboard"
+                  element={
+                    <ProtectedRoute allowedRole={["dev"]}>
+                      <DevDashboard />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/dev/dashboard/ticket/:ticketId"
+                  element={
+                    <ProtectedRoute allowedRole={["dev"]}>
+                      <TicketDetail />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/dev/resolved"
+                  element={
+                    <ProtectedRoute allowedRole={["dev"]}>
+                      <ResolvedTickets />
+                    </ProtectedRoute>
+                  }
+                />
+              </Route>
+
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact-us" element={<ContactUs />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/sign-up" element={<SignUp />} />
+              <Route path="/admin" element={<AdminDashboard />} />
+            </Routes>
+          </ScrollToTop>
         </div>
       </Router>
     </TicketProvider>
